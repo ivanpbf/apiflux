@@ -7,7 +7,7 @@ const config = require('./config/database');
 
 app.use(bodyParser.json());
 app.use(cors());
-const port = 3000;
+const port = process.env.PORT;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -68,7 +68,6 @@ app.get('/materias/:id', function(req,res){
         res.json(materia);
     });
 });
-
 
 app.listen(port,()=>{
     console.log('conectado');
